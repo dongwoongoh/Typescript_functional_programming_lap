@@ -1,6 +1,6 @@
 package winstonchurchill.nice.domain.repositories;
 
-import winstonchurchill.nice.domain.entity.Member;
+import winstonchurchill.nice.domain.entites.Member;
 
 public interface IMemberRepository {
     void save(Member member);

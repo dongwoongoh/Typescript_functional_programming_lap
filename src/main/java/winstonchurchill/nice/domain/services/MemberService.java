@@ -1,6 +1,6 @@
 package winstonchurchill.nice.domain.services;
 
-import winstonchurchill.nice.domain.entity.Member;
+import winstonchurchill.nice.domain.entites.Member;
 import winstonchurchill.nice.domain.repositories.IMemberRepository;
 import winstonchurchill.nice.domain.repositories.MemoryMemberRepository;
 

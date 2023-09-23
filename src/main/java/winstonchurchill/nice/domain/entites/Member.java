@@ -1,4 +1,4 @@
-package winstonchurchill.nice.domain.entity;
+package winstonchurchill.nice.domain.entites;
 
 import winstonchurchill.nice.domain.types.TGrade;
 

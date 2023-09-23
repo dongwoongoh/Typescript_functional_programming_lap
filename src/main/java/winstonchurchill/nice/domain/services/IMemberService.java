@@ -1,6 +1,6 @@
 package winstonchurchill.nice.domain.services;
 
-import winstonchurchill.nice.domain.entity.Member;
+import winstonchurchill.nice.domain.entites.Member;
 
 public interface IMemberService {
     void join(Member member);
