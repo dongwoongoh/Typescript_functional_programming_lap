@@ -10,11 +10,11 @@ public class MemberService implements IMemberService {
 
     @Override
     public void join(Member member) {
-        memberRepository.save(member);
+        this.memberRepository.save(member);
     }
 
     @Override
     public Member findMember(Long memberId) {
-        return memberRepository.findById(memberId);
+        return this.memberRepository.findById(memberId);
     }
 }
