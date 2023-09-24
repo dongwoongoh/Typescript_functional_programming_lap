@@ -1,4 +1,4 @@
-package winstonchurchill.nice.member.services;
+package winstonchurchill.nice.member.repositores;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
