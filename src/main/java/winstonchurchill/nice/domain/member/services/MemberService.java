@@ -1,8 +1,8 @@
-package winstonchurchill.nice.domain.services;
+package winstonchurchill.nice.domain.member.services;
 
-import winstonchurchill.nice.domain.entites.Member;
-import winstonchurchill.nice.domain.repositories.IMemberRepository;
-import winstonchurchill.nice.domain.repositories.MemoryMemberRepository;
+import winstonchurchill.nice.domain.member.entity.Member;
+import winstonchurchill.nice.domain.member.repositores.IMemberRepository;
+import winstonchurchill.nice.domain.member.repositores.MemoryMemberRepository;
 
 public class MemberService implements IMemberService {
 

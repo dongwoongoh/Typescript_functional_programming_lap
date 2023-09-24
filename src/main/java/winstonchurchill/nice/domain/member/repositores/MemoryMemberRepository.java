@@ -1,6 +1,6 @@
-package winstonchurchill.nice.domain.repositories;
+package winstonchurchill.nice.domain.member.repositores;
 
-import winstonchurchill.nice.domain.entites.Member;
+import winstonchurchill.nice.domain.member.entity.Member;
 
 import java.util.HashMap;
 import java.util.Map;

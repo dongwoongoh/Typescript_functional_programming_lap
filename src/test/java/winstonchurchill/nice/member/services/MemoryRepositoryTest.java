@@ -2,10 +2,10 @@ package winstonchurchill.nice.member.services;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
-import winstonchurchill.nice.domain.entites.Member;
-import winstonchurchill.nice.domain.repositories.IMemberRepository;
-import winstonchurchill.nice.domain.repositories.MemoryMemberRepository;
-import winstonchurchill.nice.domain.types.TGrade;
+import winstonchurchill.nice.domain.member.entity.Member;
+import winstonchurchill.nice.domain.member.repositores.IMemberRepository;
+import winstonchurchill.nice.domain.member.repositores.MemoryMemberRepository;
+import winstonchurchill.nice.domain.member.types.TGrade;
 
 public class MemoryRepositoryTest {
     private final IMemberRepository memberRepository = new MemoryMemberRepository();

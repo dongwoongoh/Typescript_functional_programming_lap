@@ -1,6 +1,6 @@
-package winstonchurchill.nice.domain.entites;
+package winstonchurchill.nice.domain.member.entity;
 
-import winstonchurchill.nice.domain.types.TGrade;
+import winstonchurchill.nice.domain.member.types.TGrade;
 
 public class Member {
     private Long id;

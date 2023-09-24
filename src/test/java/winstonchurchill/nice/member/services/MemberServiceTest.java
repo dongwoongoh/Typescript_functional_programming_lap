@@ -2,10 +2,10 @@ package winstonchurchill.nice.member.services;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
-import winstonchurchill.nice.domain.entites.Member;
-import winstonchurchill.nice.domain.services.IMemberService;
-import winstonchurchill.nice.domain.services.MemberService;
-import winstonchurchill.nice.domain.types.TGrade;
+import winstonchurchill.nice.domain.member.entity.Member;
+import winstonchurchill.nice.domain.member.services.IMemberService;
+import winstonchurchill.nice.domain.member.services.MemberService;
+import winstonchurchill.nice.domain.member.types.TGrade;
 
 public class MemberServiceTest {
 
