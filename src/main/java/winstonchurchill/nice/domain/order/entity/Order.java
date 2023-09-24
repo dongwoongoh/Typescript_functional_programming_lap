@@ -15,6 +15,10 @@ public class Order {
         this.discountPrice = discountPrice;
     }
 
+    private int calculatePrice() {
+        return this.itemPrice - this.discountPrice;
+    }
+
     public Long getId() {
         return id;
     }
