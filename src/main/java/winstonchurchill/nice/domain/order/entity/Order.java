@@ -63,4 +63,15 @@ public class Order {
         return this.calculatePrice();
     }
 
+    @Override
+    public String toString() {
+        return "Order{" +
+                "id=" + id +
+                ", memberId=" + memberId +
+                ", itemName='" + itemName + '\'' +
+                ", itemPrice=" + itemPrice +
+                ", discountPrice=" + discountPrice +
+                ", getTotalPrice=" + this.getTotalPrice() +
+                '}';
+    }
 }
