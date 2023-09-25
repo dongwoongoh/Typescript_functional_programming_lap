@@ -58,5 +58,9 @@ public class Order {
     public void setDiscountPrice(int discountPrice) {
         this.discountPrice = discountPrice;
     }
-    
+
+    public int getTotalPrice() {
+        return this.calculatePrice();
+    }
+
 }
