@@ -1,4 +1,4 @@
-package winstonchurchill.nice.domain.order.applications.usecases.discount;
+package winstonchurchill.nice.applications.usecases.discount;
 
 import winstonchurchill.nice.domain.member.entity.Member;
 

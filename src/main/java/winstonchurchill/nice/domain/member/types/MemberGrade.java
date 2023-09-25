@@ -1,6 +1,6 @@
 package winstonchurchill.nice.domain.member.types;
 
-public enum TGrade {
+public enum MemberGrade {
     BASIC,
     VIP
 }

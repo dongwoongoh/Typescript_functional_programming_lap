@@ -3,7 +3,7 @@ package winstonchurchill.nice.order.repositores;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import winstonchurchill.nice.domain.member.entity.Member;
-import winstonchurchill.nice.domain.member.types.TGrade;
+import winstonchurchill.nice.domain.member.types.MemberGrade;
 import winstonchurchill.nice.domain.order.entity.Order;
 import winstonchurchill.nice.domain.order.repositories.IOrderRepository;
 import winstonchurchill.nice.domain.order.repositories.MemoryOrderRepository;
@@ -13,7 +13,7 @@ public class MemoryOrderRepositoryTest {
 
     @Test
     void save() {
-        final Member mad = new Member(1L, "mad", TGrade.VIP);
+        final Member mad = new Member(1L, "mad", MemberGrade.VIP);
         final Order newOrder = new Order(1L, mad.getId(), "tv", 12000, 2000);
         this.orderRepository.save(newOrder);
         final Order order = this.orderRepository.findById(newOrder.getId());

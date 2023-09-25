@@ -1,13 +1,13 @@
 package winstonchurchill.nice.domain.member.entity;
 
-import winstonchurchill.nice.domain.member.types.TGrade;
+import winstonchurchill.nice.domain.member.types.MemberGrade;
 
 public class Member {
     private Long id;
     private String name;
-    private TGrade grade;
+    private MemberGrade grade;
 
-    public Member(Long id, String name, TGrade grade) {
+    public Member(Long id, String name, MemberGrade grade) {
         this.id = id;
         this.name = name;
         this.grade = grade;
@@ -29,11 +29,11 @@ public class Member {
         this.name = name;
     }
 
-    public TGrade getGrade() {
+    public MemberGrade getGrade() {
         return grade;
     }
 
-    public void setGrade(TGrade grade) {
+    public void setGrade(MemberGrade grade) {
         this.grade = grade;
     }
 }

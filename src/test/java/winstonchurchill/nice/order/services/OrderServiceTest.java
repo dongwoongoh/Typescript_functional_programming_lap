@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import winstonchurchill.nice.domain.member.entity.Member;
 import winstonchurchill.nice.domain.member.repositores.IMemberRepository;
 import winstonchurchill.nice.domain.member.repositores.MemoryMemberRepository;
-import winstonchurchill.nice.domain.member.types.TGrade;
+import winstonchurchill.nice.domain.member.types.MemberGrade;
 import winstonchurchill.nice.domain.order.entity.Order;
 import winstonchurchill.nice.domain.order.repositories.IOrderRepository;
 import winstonchurchill.nice.domain.order.repositories.MemoryOrderRepository;
@@ -22,7 +22,7 @@ public class OrderServiceTest {
 
     @Test
     void save() {
-        final Member mad = new Member(1L, "mad", TGrade.VIP);
+        final Member mad = new Member(1L, "mad", MemberGrade.VIP);
         this.memberRepository.save(mad);
         final Member member = this.memberRepository.findById(mad.getId());
         final Order order = this.orderService.createOrder(1L, member.getId(), itemName, itemPrice);
