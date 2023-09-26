@@ -2,10 +2,13 @@ package winstonchurchill.nice.domain.member.entity;
 
 import winstonchurchill.nice.domain.member.types.MemberGrade;
 
+
 public class Member {
     private Long id;
     private String name;
     private MemberGrade grade;
+
+    private int point;
 
     public Member(Long id, String name, MemberGrade grade) {
         this.id = id;
@@ -35,5 +38,13 @@ public class Member {
 
     public void setGrade(MemberGrade grade) {
         this.grade = grade;
+    }
+
+    public int getPoint() {
+        return point;
+    }
+
+    public void setPoint(int point) {
+        this.point = point;
     }
 }
