@@ -26,8 +26,23 @@ public class OrderServiceTest {
         this.memberRepository.save(mad);
         final Member member = this.memberRepository.findById(mad.getId());
         final Order order = this.orderService.createOrder(1L, member.getId(), itemName, itemPrice);
-        this.orderRepository.save(order);
         final Order orderRecord = this.orderRepository.findById(order.getId());
         Assertions.assertThat(order.getTotalPrice()).isEqualTo(orderRecord.getTotalPrice());
+    }
+
+    @Test
+    void find() {
+        final Member mad = new Member(2L, "mad1L", MemberGrade.VIP);
+        this.memberRepository.save(mad);
+        final Member member = this.memberRepository.findById(mad.getId());
+        final Order order = this.orderService.createOrder(2L, member.getId(), itemName, itemPrice);
+        final Order orderRecord = this.orderService.findOrder(order.getId());
+        Assertions.assertThat(orderRecord.getId()).isEqualTo(order.getId());
+        Assertions.assertThat(orderRecord.getMemberId()).isEqualTo(order.getMemberId());
+        Assertions.assertThatThrownBy(() -> {
+                    this.orderService.findOrder(33L);
+                })
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("orderId doesn't exist");
     }
 }
