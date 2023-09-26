@@ -24,4 +24,11 @@ public class OrderService implements IOrderService {
         this.orderRepository.save(order);
         return order;
     }
+
+    @Override
+    public Order findOrder(Long id) {
+        final Order order = this.orderRepository.findById(id);
+        if (order == null) throw new IllegalArgumentException("orderId doesn't exist");
+        return order;
+    }
 }
