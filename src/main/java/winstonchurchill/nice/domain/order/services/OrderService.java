@@ -18,7 +18,7 @@ public class OrderService implements IOrderService {
     @Override
     public Order createOrder(Long id, Long memberId, String itemName, int itemPrice) {
         final Member member = this.memberRepository.findById(memberId);
-        final int discountPrice = this.discountPolicy.discount(member);
+        final int discountPrice = this.discountPolicy.discount(member, itemPrice);
         final Order order = new Order(id, memberId, "mad-item", 11000, discountPrice);
         System.out.println(order.toString());
         this.orderRepository.save(order);

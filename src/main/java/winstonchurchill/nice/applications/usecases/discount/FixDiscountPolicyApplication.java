@@ -5,7 +5,7 @@ import winstonchurchill.nice.domain.member.types.MemberGrade;
 
 public class FixDiscountPolicyApplication implements IDiscountPolicy {
     @Override
-    public int discount(Member member) {
+    public int discount(Member member, int price) {
         if (member.getGrade() == MemberGrade.VIP) {
             return 1000;
         } else {
