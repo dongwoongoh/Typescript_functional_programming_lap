@@ -1,9 +1,9 @@
 package winstonchurchill.nice.domain.order.services;
 
+import winstonchurchill.nice.applications.usecases.discount.RateDiscountPolicy;
 import winstonchurchill.nice.domain.member.entity.Member;
 import winstonchurchill.nice.domain.member.repositores.IMemberRepository;
 import winstonchurchill.nice.domain.member.repositores.MemoryMemberRepository;
-import winstonchurchill.nice.applications.usecases.discount.FixDiscountPolicyApplication;
 import winstonchurchill.nice.applications.usecases.discount.IDiscountPolicy;
 import winstonchurchill.nice.domain.order.entity.Order;
 import winstonchurchill.nice.domain.order.repositories.IOrderRepository;
@@ -12,7 +12,7 @@ import winstonchurchill.nice.domain.order.repositories.MemoryOrderRepository;
 public class OrderService implements IOrderService {
 
     private final IOrderRepository orderRepository = new MemoryOrderRepository();
-    private final IDiscountPolicy discountPolicy = new FixDiscountPolicyApplication();
+    private final IDiscountPolicy discountPolicy = new RateDiscountPolicy();
     private final IMemberRepository memberRepository = new MemoryMemberRepository();
 
     @Override
