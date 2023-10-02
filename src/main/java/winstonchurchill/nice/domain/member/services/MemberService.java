@@ -6,7 +6,11 @@ import winstonchurchill.nice.domain.member.repositores.MemoryMemberRepository;
 
 public class MemberService implements IMemberService {
 
-    private final IMemberRepository memberRepository = new MemoryMemberRepository();
+    private final IMemberRepository memberRepository;
+
+    public MemberService(IMemberRepository memoryMemberRepository) {
+        this.memberRepository = memoryMemberRepository;
+    }
 
     @Override
     public void join(Member member) {
