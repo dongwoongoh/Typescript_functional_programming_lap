@@ -24,6 +24,7 @@ public class MemberServiceTest {
         final Member member = new Member(1L, "mad", MemberGrade.BASIC);
         this.memberService.join(member);
         final Member result = this.memberService.findMember(member.getId());
+        System.out.println(result.toString());
         Assertions.assertThat(member.getId()).isEqualTo(result.getId());
     }
 }
