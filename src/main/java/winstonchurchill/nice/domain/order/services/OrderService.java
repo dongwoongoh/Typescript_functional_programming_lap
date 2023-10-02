@@ -23,7 +23,6 @@ public class OrderService implements IOrderService {
         final Member member = this.memberRepository.findById(memberId);
         final int discountPrice = this.discountPolicy.discount(member, itemPrice);
         final Order order = new Order(id, memberId, "mad-item", 11000, discountPrice);
-        System.out.println(order.toString());
         this.orderRepository.save(order);
         return order;
     }
