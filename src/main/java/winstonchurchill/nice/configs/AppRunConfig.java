@@ -16,17 +16,25 @@ import winstonchurchill.nice.domain.order.services.OrderService;
 @Configuration
 public class AppRunConfig {
 
-    private final IMemberRepository memberRepository = new MemoryMemberRepository();
-    private final IOrderRepository orderRepository = new MemoryOrderRepository();
     private final IDiscountPolicy discountPolicy = new RateDiscountPolicy();
 
     @Bean
+    public IMemberRepository memberRepository() {
+        return new MemoryMemberRepository();
+    }
+
+    @Bean
+    public IOrderRepository orderRepository() {
+        return new MemoryOrderRepository();
+    }
+
+    @Bean
     public IMemberService memberService() {
-        return new MemberService(this.memberRepository);
+        return new MemberService(this.memberRepository());
     }
 
     @Bean
     public IOrderService orderService() {
-        return new OrderService(this.orderRepository, this.discountPolicy, this.memberRepository);
+        return new OrderService(this.orderRepository(), this.discountPolicy, this.memberRepository());
     }
 }
