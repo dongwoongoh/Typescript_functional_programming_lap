@@ -16,7 +16,6 @@ import winstonchurchill.nice.domain.order.services.OrderService;
 @Configuration
 public class AppRunConfig {
 
-    private final IDiscountPolicy discountPolicy = new RateDiscountPolicy();
 
     @Bean
     public IMemberRepository memberRepository() {
@@ -29,12 +28,17 @@ public class AppRunConfig {
     }
 
     @Bean
+    public IDiscountPolicy discountPolicy() {
+        return new RateDiscountPolicy();
+    }
+
+    @Bean
     public IMemberService memberService() {
         return new MemberService(this.memberRepository());
     }
 
     @Bean
     public IOrderService orderService() {
-        return new OrderService(this.orderRepository(), this.discountPolicy, this.memberRepository());
+        return new OrderService(this.orderRepository(), this.discountPolicy(), this.memberRepository());
     }
 }
