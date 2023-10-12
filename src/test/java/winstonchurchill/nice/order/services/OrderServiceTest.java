@@ -45,4 +45,12 @@ public class OrderServiceTest {
         Assertions.assertThat(order.getId()).isEqualTo(99L);
         Assertions.assertThat(order.getMemberId()).isEqualTo(99L);
     }
+
+    @Test
+    @DisplayName("should not found item by id")
+    void notFound() {
+        Assertions.assertThatThrownBy(() -> {
+            this.orderService.findOrder(99L);
+        }).isInstanceOf(IllegalArgumentException.class).hasMessage("orderId doesn't exist");
+    }
 }
