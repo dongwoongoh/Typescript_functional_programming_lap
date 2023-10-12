@@ -19,6 +19,8 @@ public class MemberService implements IMemberService {
 
     @Override
     public Member findMember(Long memberId) {
-        return this.memberRepository.findById(memberId);
+        final Member member = this.memberRepository.findById(memberId);
+        if (member == null) throw new IllegalArgumentException("does not exist id");
+        return member;
     }
 }

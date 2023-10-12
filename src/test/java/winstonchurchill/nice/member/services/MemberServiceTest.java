@@ -27,4 +27,19 @@ public class MemberServiceTest {
         System.out.println(result.toString());
         Assertions.assertThat(member.getId()).isEqualTo(result.getId());
     }
+
+    @Test
+    void find_success() {
+        final Member member = new Member(22L, "maaaaaad", MemberGrade.VIP);
+        this.memberService.join(member);
+        final Member result = this.memberService.findMember(22L);
+        Assertions.assertThat(result).isEqualTo(member);
+    }
+
+    @Test
+    void find_failed() {
+        Assertions.assertThatThrownBy(() -> {
+            this.memberService.findMember(234L);
+        }).isInstanceOf(IllegalArgumentException.class).hasMessage("does not exist id");
+    }
 }
