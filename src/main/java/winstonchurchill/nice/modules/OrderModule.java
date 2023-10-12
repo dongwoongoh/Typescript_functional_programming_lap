@@ -16,7 +16,7 @@ public class OrderModule {
         final ApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppRunConfig.class);
         final IMemberService memberService = applicationContext.getBean("memberService", MemberService.class);
         final IOrderService orderService = applicationContext.getBean("orderService", OrderService.class);
-        final Member member = new Member(1L, "madmad", MemberGrade.VIP);
+        final Member member = new Member(1L, "mad-mad", MemberGrade.VIP);
         memberService.join(member);
         final Member mad = memberService.findMember(member.getId());
         final Order order = orderService.createOrder(2L, mad.getId(), "mad-item", 1000);

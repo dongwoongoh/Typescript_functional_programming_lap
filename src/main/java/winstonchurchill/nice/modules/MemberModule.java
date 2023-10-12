@@ -12,7 +12,7 @@ public class MemberModule {
     public static void main(String[] args) {
         final ApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppRunConfig.class);
         final IMemberService memberService = applicationContext.getBean("memberService", MemberService.class);
-        final Member member = new Member(1L, "mad", MemberGrade.VIP);
+        final Member member = new Member(1L, "mad-man", MemberGrade.VIP);
         memberService.join(member);
         final Member result = memberService.findMember(member.getId());
         System.out.println(result.toString());
