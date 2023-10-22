@@ -8,6 +8,8 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import winstonchurchill.nice.configs.AppRunConfig;
 import winstonchurchill.nice.domain.member.services.IMemberService;
 import winstonchurchill.nice.domain.member.services.MemberService;
+import winstonchurchill.nice.domain.order.services.IOrderService;
+import winstonchurchill.nice.domain.order.services.OrderService;
 
 public class ApplicationContextTest {
 
@@ -30,6 +32,8 @@ public class ApplicationContextTest {
     @DisplayName("should find by input bean name")
     void findBeanService() {
         final IMemberService memberService = applicationContext.getBean(IMemberService.class);
+        final IOrderService orderService = applicationContext.getBean(IOrderService.class);
         Assertions.assertThat(memberService).isInstanceOf(MemberService.class);
+        Assertions.assertThat(orderService).isInstanceOf(OrderService.class);
     }
 }
