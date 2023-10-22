@@ -1,8 +1,10 @@
 package winstonchurchill.nice.modules;
 
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.NoSuchBeanDefinitionException;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import winstonchurchill.nice.configs.AppRunConfig;
@@ -12,8 +14,12 @@ import winstonchurchill.nice.domain.order.services.IOrderService;
 import winstonchurchill.nice.domain.order.services.OrderService;
 
 public class ApplicationContextTest {
+    private AnnotationConfigApplicationContext applicationContext;
 
-    final AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppRunConfig.class);
+    @BeforeEach
+    void createAnnotationContext() {
+        this.applicationContext = new AnnotationConfigApplicationContext(AppRunConfig.class);
+    }
 
     @Test
     @DisplayName("should find all bean")
@@ -35,5 +41,11 @@ public class ApplicationContextTest {
         final IOrderService orderService = applicationContext.getBean(IOrderService.class);
         Assertions.assertThat(memberService).isInstanceOf(MemberService.class);
         Assertions.assertThat(orderService).isInstanceOf(OrderService.class);
+    }
+
+    @Test
+    @DisplayName("should not found bean by input name")
+    void notFoundBean() {
+        org.junit.jupiter.api.Assertions.assertThrows(NoSuchBeanDefinitionException.class, () -> applicationContext.getBean("madService", IMemberService.class));
     }
 }
