@@ -46,6 +46,6 @@ public class ApplicationContextTest {
     @Test
     @DisplayName("should not found bean by input name")
     void notFoundBean() {
-        org.junit.jupiter.api.Assertions.assertThrows(NoSuchBeanDefinitionException.class, () -> applicationContext.getBean("madService", IMemberService.class));
+        Assertions.assertThatThrownBy(() -> applicationContext.getBean("madService", IMemberService.class)).isInstanceOf(NoSuchBeanDefinitionException.class);
     }
 }
