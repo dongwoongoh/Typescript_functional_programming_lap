@@ -1,10 +1,13 @@
 package winstonchurchill.nice.modules;
 
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import winstonchurchill.nice.configs.AppRunConfig;
+import winstonchurchill.nice.domain.member.services.IMemberService;
+import winstonchurchill.nice.domain.member.services.MemberService;
 
 public class ApplicationContextTest {
 
@@ -23,4 +26,10 @@ public class ApplicationContextTest {
         }
     }
 
+    @Test
+    @DisplayName("should find by input bean name")
+    void findBeanService() {
+        final IMemberService memberService = applicationContext.getBean(IMemberService.class);
+        Assertions.assertThat(memberService).isInstanceOf(MemberService.class);
+    }
 }
