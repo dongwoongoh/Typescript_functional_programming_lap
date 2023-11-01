@@ -10,6 +10,8 @@ import org.springframework.context.annotation.Configuration;
 import winstonchurchill.nice.domain.member.repositores.IMemberRepository;
 import winstonchurchill.nice.domain.member.repositores.MemoryMemberRepository;
 
+import java.util.Map;
+
 public class ApplicationContextByTypeTest {
     private final AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(SameBeenConfig.class);
 
@@ -38,5 +40,15 @@ public class ApplicationContextByTypeTest {
     public void findBeanTypeByName() {
         final IMemberRepository bean = applicationContext.getBean("memberRepository1", IMemberRepository.class);
         Assertions.assertThat(bean).isInstanceOf(IMemberRepository.class);
+    }
+
+    @Test
+    @DisplayName("should find all beans by type")
+    public void findBeansByType() {
+        Map<String, IMemberRepository> beansOfType = applicationContext.getBeansOfType(IMemberRepository.class);
+        for (String key : beansOfType.keySet()) {
+            System.out.println("key = " + key + "value = " + beansOfType.get(key));
+        }
+        Assertions.assertThat(beansOfType.size()).isEqualTo(2);
     }
 }
