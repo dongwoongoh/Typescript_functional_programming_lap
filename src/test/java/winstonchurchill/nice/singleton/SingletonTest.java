@@ -12,7 +12,7 @@ public class SingletonTest {
     public void callService() {
         SingletonService singletonService1 = SingletonService.getInstance();
         SingletonService singletonService2 = SingletonService.getInstance();
-        Assertions.assertThat(singletonService1).isEqualTo(singletonService2);
+        Assertions.assertThat(singletonService1).isSameAs(singletonService2);
     }
 
     @Test
@@ -20,6 +20,6 @@ public class SingletonTest {
     public void callDiffService() {
         SingletonTest test1 = new SingletonTest();
         SingletonTest test2 = new SingletonTest();
-        Assertions.assertThat(test1).isNotEqualTo(test2);
+        Assertions.assertThat(test1).isNotSameAs(test2);
     }
 }
