@@ -6,11 +6,20 @@ import org.junit.jupiter.api.Test;
 
 public class SingletonTest {
 
+
     @Test
     @DisplayName("should same this two service")
     public void callService() {
         SingletonService singletonService1 = SingletonService.getInstance();
         SingletonService singletonService2 = SingletonService.getInstance();
         Assertions.assertThat(singletonService1).isEqualTo(singletonService2);
+    }
+
+    @Test
+    @DisplayName("should not same this two service")
+    public void callDiffService() {
+        SingletonTest test1 = new SingletonTest();
+        SingletonTest test2 = new SingletonTest();
+        Assertions.assertThat(test1).isNotEqualTo(test2);
     }
 }
